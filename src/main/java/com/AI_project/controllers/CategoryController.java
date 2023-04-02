@@ -6,6 +6,7 @@ import java.util.Locale.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import io.micrometer.common.util.StringUtils;
 
 @RestController
 @RequestMapping("/auth/api") 
+@CrossOrigin("http://localhost:3000")
 public class CategoryController {
 
 	@Autowired
@@ -31,8 +33,8 @@ public class CategoryController {
 	@PostMapping("/upload")
 	public ResponseEntity<CategoryDto> uploadLink(@RequestBody CategoryDto categoryDto){
 		if(categoryDto.getCategory()==null || categoryDto.getDescription()==null ||
-				categoryDto.getFile_link()==null || categoryDto.getFile_roadmap()==null ||
-				categoryDto.getRating()==null || categoryDto.getViews()==null) {
+				categoryDto.getFile_courselink()==null || categoryDto.getFile_roadmap()==null ||
+						categoryDto.getFile_ytlink()==null || categoryDto.getRating()==null || categoryDto.getViews()==null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 			

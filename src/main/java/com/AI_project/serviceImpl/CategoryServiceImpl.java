@@ -32,10 +32,12 @@ public class CategoryServiceImpl implements CategoryService {
 		
 		  category.setCategory(categoryDto.getCategory());
 		  category.setDescription(categoryDto.getDescription());
-		  category.setFile_link(categoryDto.getFile_link());
+		  category.setFile_courselink(categoryDto.getFile_courselink());
 		  category.setFile_roadmap(categoryDto.getFile_roadmap());
+		  category.setFile_ytlink(categoryDto.getFile_ytlink());
 		  category.setRating(categoryDto.getRating());
 		  category.setViews(categoryDto.getViews());
+		  category.setPrice(categoryDto.getPrice());
 		  
 		  Categories updatedNotes = this.categoryRepo.save(category); 
 		  CategoryDto notesDto1 = this.CategoryToDto(updatedNotes);
@@ -61,20 +63,24 @@ public class CategoryServiceImpl implements CategoryService {
 		Categories category = new Categories();
 		category.setCategory(categoryDto.getCategory());
 		category.setDescription(categoryDto.getDescription());
-		category.setFile_link(categoryDto.getFile_link());
+		category.setFile_courselink(categoryDto.getFile_courselink());
+		category.setFile_ytlink(categoryDto.getFile_ytlink());
 		category.setFile_roadmap(categoryDto.getFile_roadmap());
 		category.setRating(categoryDto.getRating());
 		category.setViews(categoryDto.getViews());
+		category.setPrice(categoryDto.getPrice());
 		return category;
 	}
 	private CategoryDto CategoryToDto(Categories category) {
 		CategoryDto categoryDto = new CategoryDto();
 		categoryDto.setCategory(category.getCategory());
 		categoryDto.setDescription(category.getDescription());
-		categoryDto.setFile_link(category.getFile_link());
+		categoryDto.setFile_courselink(category.getFile_courselink());
 		categoryDto.setFile_roadmap(category.getFile_roadmap());
+		categoryDto.setFile_ytlink(category.getFile_ytlink());
 		categoryDto.setRating(category.getRating());
 		categoryDto.setViews(category.getViews());
+		categoryDto.setPrice(category.getPrice());
 		return categoryDto;
 	}
 }
